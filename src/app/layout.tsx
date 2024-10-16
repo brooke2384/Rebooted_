@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Head from "next/head"; // Import Head to include in the layout
+import Head from "next/head"; 
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +35,11 @@ export default function RootLayout({
         <link rel="icon" sizes="192x192" href="/f/android-chrome-192x192.png" />
         <link rel="icon" sizes="512x512" href="/f/android-chrome-512x512.png" />
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        {children}
+        <Footer /> {/* Move Footer inside the body */}
+      </body>
     </html>
   );
 }
